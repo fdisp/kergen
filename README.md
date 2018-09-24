@@ -10,6 +10,76 @@ There are many different ways in which a user would want to configure their kern
 It will only add kernel options that it's 100% sure you will need. So mainly it will support all of your plugged in hardware, mounted file systems, etc. etc.
 Currently it takes care of all PCI, USB, SCSI, devices, and file system support, and works only on x86 architectures. In future versions, other types of hardware and architectures will be supported as well.
 
+#  Setup
+
+## 0. Install Dependencies
+Open terminal and type:
+
+`sudo apt-get install python git`
+
+## 1. Get Kergen
+
+   `git clone https://github.com/nichoski/kergen.git`
+
+   `cd kergen`
+
+## 2. Install
+
+`sudo python setup.py build`
+        
+`sudo python setup.py install`
+
+For a list of setup parameters type:
+
+`sudo python setup.py -h`
+
+the following output will be displayed:
+
+
+    user@debian:/home/user/kergen$ python setup.py --help
+    Common commands: (see '--help-commands' for more)
+
+      setup.py build      will build the package underneath 'build/'
+      setup.py install    will install the package
+
+    Global options:
+      --verbose (-v)      run verbosely (default)
+      --quiet (-q)        run quietly (turns verbosity off)
+      --dry-run (-n)      don't actually do anything
+      --help (-h)         show detailed help message
+      --no-user-cfg       ignore pydistutils.cfg in your home directory
+      --command-packages  list of packages that provide distutils commands
+
+    Information display options (just display information, ignore any commands)
+      --help-commands     list all available commands
+      --name              print package name
+      --version (-V)      print package version
+      --fullname          print <package name>-<version>
+      --author            print the author's name
+      --author-email      print the author's email address
+      --maintainer        print the maintainer's name
+      --maintainer-email  print the maintainer's email address
+      --contact           print the maintainer's name if known, else the author's
+      --contact-email     print the maintainer's email address if known, else the
+                          author's
+      --url               print the URL for this package
+      --license           print the license of the package
+      --licence           alias for --license
+      --description       print the package description
+      --long-description  print the long package description
+      --platforms         print the list of platforms
+      --classifiers       print the list of classifiers
+      --keywords          print the list of keywords
+      --provides          print the list of packages/modules provided
+      --requires          print the list of packages/modules required
+      --obsoletes         print the list of packages/modules made obsolete
+
+    usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+       or: setup.py --help [cmd1 cmd2 ...]
+       or: setup.py --help-commands
+       or: setup.py cmd --help
+
+
 ## Usage
 kergen is called as root, and without arguments it does nothing. Here is a list of arguments and their functions:  
 -g, --generate   - Generate optimized kernel options for your hardware and add the non existing ones to .config  
